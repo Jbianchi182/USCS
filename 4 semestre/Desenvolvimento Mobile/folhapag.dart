@@ -23,7 +23,6 @@ class Endereco{
     double? _bonuspercent;
     double? _descontopercent;
     Endereco enderecoFunc;
-    double? _salarioLiquido;
   
     Funcionario(this._nome, this.enderecoFunc, this._salariobruto, this._bonuspercent, this._descontopercent);
     
@@ -50,7 +49,6 @@ class Endereco{
     Endereco enderecoFunc = Endereco('Rua Angela', '30', '43', 'Sao Caetano do Sul', 'SP', '09571-490', 'Brasil');
     Funcionario funcionario = Funcionario('Joao Bianchi', enderecoFunc, 1450, 15, 3);
 
-   funcionario.enderecoFunc.exibirEndereco();
+   enderecoFunc.exibirEndereco();
    funcionario.exibirSalario();
  
-    
