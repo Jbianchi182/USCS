@@ -19,9 +19,9 @@ class Endereco{
 }
   class Funcionario{
     String? _nome;
-    double? _salariobruto;
-    double? _bonuspercent;
-    double? _descontopercent;
+    double _salariobruto;
+    double _bonuspercent;
+    double _descontopercent;
     Endereco enderecoFunc;
   
     Funcionario(this._nome, this.enderecoFunc, this._salariobruto, this._bonuspercent, this._descontopercent);
@@ -52,3 +52,4 @@ class Endereco{
    enderecoFunc.exibirEndereco();
    funcionario.exibirSalario();
  
+    
