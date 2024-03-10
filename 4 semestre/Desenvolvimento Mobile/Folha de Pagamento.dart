@@ -1,48 +1,53 @@
 void main() {
+  //Dados do funcionario  
+    Endereco enderecoFunc = Endereco('Rua ABC', '30', '43', 'Sao Paulo', 'SP', '44182-182', 'Brasil');
+    Funcionario funcionario = Funcionario('Fulano de Tal', enderecoFunc, 1450, 15, 3);
+
+  // Exibir Endereço
+   funcionario.endereco.exibirEndereco();
   
+  // Calcular e exibir Salario
+  funcionario.calculoSalario();
 }
 
 class Endereco{
-    double? _complemento;
-    double? _numero;
+    String? _complemento;
+    String? _numero;
     String? _logradouro;
     String? _cidade;
     String? _estado;
     String? _pais;
     String? _cep;
     
-  Endereco(this._complemento, this._numero, this._logradouro, this._cidade, this._estado, this._pais, this._cep);
+  Endereco(this._logradouro, this._numero, this._complemento, this._cidade, this._estado, this._pais, this._cep);
   
-  void exibirEndereco() 
-  {
-    print('Endereco: $_logradouro, $_numero, $_complemento, $_cep, $_cidade, $_estado, $_pais');
+  void exibirEndereco() {
+    print('Endereco: $_logradouro, $_numero, AP $_complemento, $_cidade/$_estado - $_cep - $_pais');
   }
 }
   class Funcionario{
     String? _nome;
-    String? _cpf;
     double? _salariobruto;
-    double? _bonus;
-    double? _desconto;
+    double? _bonuspercent;
+    double? _descontopercent;
     Endereco endereco;
+    double? _salarioLiquido;
   
-    Funcionario(this._nome, this._cpf, this.endereco, this._salariobruto, this._bonus, this._desconto);
+    Funcionario(this._nome, this.endereco, this._salariobruto, this._bonuspercent, this._descontopercent);
     
-    void ExibirFuncionario ()
-    {
+    void exibirFuncionario() {
       print('Funcionario: $_nome');
     }
     
-    void CalculoSalario ()
-    {
-      double? _salarioLiquido=_salariobruto + (_salariobruto*(_bonus/100))-(_salariobruto*(_desconto/100));
+    void calculoSalario() {
+      double? _bonus = _salariobruto! * (_bonuspercent! / 100);
+      double? _desconto = _salariobruto! * (_descontopercent! / 100);
+      _salarioLiquido = _salariobruto! + _bonus - _desconto;
+      
+      exibirSalario(); 
     }
     
-    void ExibirSalario ()
-    {
-      print('O salario do funcionario é de: $CalculoSalario');
+    void exibirSalario (){
+      print('O salário do funcionário $_nome é de: RS $_salarioLiquido');
     }
-    
-    
-    
   }
