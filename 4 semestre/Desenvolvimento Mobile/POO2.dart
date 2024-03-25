@@ -1,69 +1,77 @@
-void main() {
-  //Dados do funcionario  
-    Endereco enderecoFunc = Endereco('Rua ABC', '30', '43', 'Sao Paulo', 'SP', '44182-182', 'Brasil');
-    Funcionario funcionario = Funcionario('Fulano de Tal', enderecoFunc, 1450, 15, 3);
-  Pessoa all = Pessoa('João Bianchi', '42049309805');
-  // Exibir Endereço
-   funcionario.endereco.exibirEndereco();
-  
-  // Calcular e exibir Salario
-  funcionario.calculoSalario();
-}
-
-class Usuario{
-  DateTime dataCadastro=DateTime (2024,03,14);
-  String? ultimasenha;
-  String? senha;
-  
-  void login(){}
-  void attUser(){}
-}
-
 class Endereco{
-    String? _complemento;
-    String? _numero;
-    String? _logradouro;
-    String? _cidade;
-    String? _estado;
-    String? _pais;
-    String? _cep;
-    
-  Endereco(this._logradouro, this._numero, this._complemento, this._cidade, this._estado, this._pais, this._cep);
+  String? logradouro;
+  String? numero;
+  String? bairro;
+  String? cidade;
+  String? estado;
+  String? pais;
   
-  void exibirEndereco() {
-    print('Endereco: $_logradouro, $_numero, AP $_complemento, $_cidade/$_estado - $_cep - $_pais');
+  Endereco(this.logradouro, this.numero, this.bairro, this.cidade, this.estado, this.pais);
+  
+  void exibirEndereco(){
+    print('$logradouro, $numero, $bairro, $cidade/$estado, $pais');
   }
+  
 }
 
 class Pessoa{
-  String? _nome;
-  String? _cpf;
+  String? nome;
+  int? idade;
   Endereco endereco;
   
+  Pessoa(this.nome, this.idade, this.endereco);
   
-  Pessoa.all(DateTime dataCadastro, String? ultimasenha, String? senha, this._nome, this._cpf, Endereco endereco);
-}
-  class Funcionario extends Pessoa{
-    double? _salariobruto;
-    double? _bonuspercent;
-    double? _descontopercent;
-    double? _salarioLiquido;
-  
-    Funcionario(String? _nome, String? _cpf, Endereco endereco, this._salariobruto, this._bonuspercent, this._descontopercent):super.all(_nome, _cpf);
-    
-    void exibirFuncionario() {
-      print('Funcionario: $_nome');
-    }
-    
-    void calculoSalario() {
-      double? _bonus = _salariobruto! * (_bonuspercent! / 100);
-      double? _desconto = _salariobruto! * (_descontopercent! / 100);
-      _salarioLiquido = _salariobruto! + _bonus - _desconto;
-      
-      exibirSalario(); 
-    }
-    
-    void exibirSalario (){
-      print('O salário do funcionário $_nome é de: RS $_salarioLiquido');
-    }
+  double calculoSalario (double salarioBruto, double bonus, double desconto){
+    double salarioLiquido= salarioBruto+(salarioBruto*(bonus/100))-(salarioBruto*(desconto/100));
+    return salarioLiquido;
+   }
   }
+
+class Funcionario extends Pessoa{
+  double salarioBruto;
+  double bonus;
+  double desconto;
+  
+  Funcionario(String? nome, int? idade, Endereco endereco, this.salarioBruto, this.bonus, this.desconto):super(nome, idade, endereco);
+  
+  @override
+  double calculoSalario (double salarioBruto, double bonus, double desconto){
+    double salarioLiquido=super.calculoSalario(salarioBruto, bonus, desconto);
+    print('Nome: $nome');
+    print('Idade: $idade');
+    endereco.exibirEndereco();
+    print('Salario Bruto: $salarioBruto');
+    print('Bonus: $bonus');
+    print('Desconto: $desconto');
+    print('Total a receber: $salarioLiquido');
+    return salarioLiquido;
+  }
+}
+
+class Usuario{
+  String? dataCadastro;
+  String? ultimoLogin;
+  String? senha;
+  
+  Usuario(this.dataCadastro, this.ultimoLogin, this.senha);
+  
+  void login(){}
+  void attUser(){}
+  
+}
+
+void main (){
+  Endereco endereco = Endereco('Rua ABC', '123', 'Novo Bairro', 'Cidade DEF', 'SP', 'Brasil');
+  double salarioBruto=1450.00;
+  double bonus=15;
+  double desconto=3;
+  
+  Funcionario funcionario= Funcionario('José da Silva', 52, endereco, salarioBruto, bonus, desconto);
+  
+  Usuario usuario= Usuario('02/03/24', '20/03/24', 'Exemplo senha');
+  
+  funcionario.calculoSalario(salarioBruto, bonus, desconto);
+  
+  
+}
+
