@@ -1,0 +1,22 @@
+abstract class Paciente{
+  int? _idpaciente;
+  String? _nomepac;
+  String? _infosmed;
+  
+  Paciente(this._idpaciente, this._infosmed, this._nomepac);
+  
+  int? get idpaciente => _idpaciente;
+  String? get nomepac => _nomepac;
+  String? get infosmed => _infosmed;
+  
+  void registrarestadosaude (){}
+}
+
+class PacienteInternado extends Paciente{
+  String? _diagnostico;
+  
+  PacienteInternado(this._diagnostico, _idpaciente, _nomepac, _infosmed):super(_idpaciente, _nomepac, _infosmed);
+  
+  void registrarEstadoSaude (){}
+  
+}
