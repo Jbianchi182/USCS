@@ -1,22 +1,37 @@
-abstract class Paciente{
-  int? _idpaciente;
-  String? _nomepac;
-  String? _infosmed;
+class Paciente{
+  int _idpac;
+  String _nome;
+  String _infomedicas;
   
-  Paciente(this._idpaciente, this._infosmed, this._nomepac);
+  Paciente(this._idpac, this._nome, this._infomedicas);
   
-  int? get idpaciente => _idpaciente;
-  String? get nomepac => _nomepac;
-  String? get infosmed => _infosmed;
-  
-  void registrarestadosaude (){}
-}
-
-class PacienteInternado extends Paciente{
-  String? _diagnostico;
-  
-  PacienteInternado(this._diagnostico, _idpaciente, _nomepac, _infosmed):super(_idpaciente, _nomepac, _infosmed);
+  int get idpac => _idpac;
+  String get nome => _nome;
+  String get infomedicas => _infomedicas;
   
   void registrarEstadoSaude (){}
+}
+
+class PacInternado extends Paciente{
+  String diagnostico;
   
+  PacInternado(this.diagnostico, _idpac, _nome, _infomedicas):super(_idpac, _nome, _infomedicas);
+  
+  void registrarEstadoSaude (){}
+}
+
+class PacObservacao extends Paciente{
+  String observacao;
+  
+  PacObservacao(this.observacao, _idpac, _nome, _infomedicas):super(_idpac, _nome, _infomedicas);
+  
+  void registrarEstadoSaude (){}
+}
+
+class PacAmbulatorial extends Paciente{
+  String tratamento;
+  
+  PacAmbulatorial(this.tratamento, _idpac, _nome, _infomedicas):super(_idpac, _nome, _infomedicas);
+  
+  void registrarEstadoSaude(){}
 }
