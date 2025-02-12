@@ -1,0 +1,27 @@
+body{
+    background-color: #f0f8ff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+h1{
+    color: #0077cc;
+}
+p{
+    max-width: 600px;
+    margin: 10px auto;
+    font-size: 18px;
+}
+ul{
+    list-style-type: square;
+    padding: 0;
+    display: inline-block;
+    text-align: left;
+}
+a{
+    color: #fa55bb;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover{
+    text-decoration: underline;
+}
