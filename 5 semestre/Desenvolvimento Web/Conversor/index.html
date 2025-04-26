@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+    <link rel="stylesheet" href="style.css">
+     <script src="script.js"></script>
+</head>
+<body>
+    <form>
+        <h1>Conversor de temperatura e moedas</h1><br><br>
+        <h2>Digite abaixo a temperatura a ser convertida:</h2><br>
+        <label>Temperatura</label>
+        <input type="number" name="temp" id="temp" placeholder="Digite a temperatura">
+        <select name="temperatura" id="temperatura">
+            <option value="CelFah">Celsius para Fahrenheit</option>
+            <option value="FahCel">Fahrenheit para Celsius</option>
+        </select><br><br>
+        <button type="button" onclick="converTemp()">Converter</button><br><br>
+        <p id="resultadotemp"></p><br><br>
+        <h2>Digite abaixo o valor a ser convertido:</h2><br>
+        <label>Valor em reais:</label>
+        <input type="number" name="moeda" id="moeda" placeholder="Digite o valor em reais">
+
+        <button type="button" onclick="converMoeda()">Converter</button><br><br>
+        <p id="resultadomoeda"></p><br><br>
+    </form>
+
+    
+
+</body>
+</html>

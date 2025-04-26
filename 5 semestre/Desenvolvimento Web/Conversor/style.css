@@ -1,0 +1,92 @@
+/* Estilização geral */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e2e9a4, #59c984);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contêiner centralizado */
+.container {
+    width: 80%;
+    max-width: 600px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Cabeçalhos */
+h1, h2 {
+    color: #388E3C;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* Estilização dos campos de entrada */
+input, select, button {
+    width: 90%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 2px solid #388E3C;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #2E7D32;
+    outline: none;
+}
+
+/* Botão estilizado */
+button {
+    background: #388E3C;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    border: none;
+}
+
+button:hover {
+    background: #2E7D32;
+}
+
+/* Resultados */
+p {
+    font-size: 18px;
+    font-weight: normal;
+    color: #333;
+}
+
+/* Formulários */
+form {
+    background: #E8F5E9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
