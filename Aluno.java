@@ -7,6 +7,7 @@ public class Aluno {
     public double nota_P2; // Nota da prova 2
     public double nota_P3; // Nota da prova 3
 
+    public Aluno(){}
     public Aluno(String nome, int codmat, String cpf, char sexo, double nota_P1, double nota_P2, double nota_P3) {
         this.nome = nome;
         this.codmat = codmat;
@@ -16,7 +17,6 @@ public class Aluno {
         this.nota_P2 = nota_P2;
         this.nota_P3 = nota_P3;
     }
-    public Aluno(){}
 
     public String imprimeAluno() {
         return "Nome: " + nome + "\n" +
@@ -25,15 +25,13 @@ public class Aluno {
                "Sexo: " + sexo + "\n";
     }
 
-    public String imprimeSexo(){
-        if (sexo == 'M' || sexo == 'm') {
-            return nome + "é do sexo masculino";
-        } else if (sexo == 'F' || sexo == 'f') {
-            return nome + "é do sexo feminino";
-        } else {
-            return "Sexo inválido";            
-        }
-    }
+public String imprimeSexo(){
+    return switch (sexo) {
+        case 'M', 'm' -> nome + "é do sexo masculino";
+        case 'F', 'f' -> nome + "é do sexo feminino";
+        default -> "Sexo inválido";
+    };
+}    
 
     public double mediaAluno() {
         if (nota_P1 > nota_P2) {
